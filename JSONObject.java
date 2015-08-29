@@ -1783,6 +1783,19 @@ public class JSONObject {
         return writer;
     }
 
+    /**
+     * Write the contents of the JSONObject as JSON text to a writer.
+     * If indentFactor is zero, no whitespace is added.
+     * <p>
+     * Warning: This method assumes that the data structure is acyclical.
+     *
+     * @return The writer.
+     * @throws JSONException
+     */
+    public Writer write(Writer writer, int indentFactor) throws JSONException {
+        return this.write(writer, indentFactor, 0);
+    }
+    
     static final void indent(Writer writer, int indent) throws IOException {
         for (int i = 0; i < indent; i += 1) {
             writer.write(' ');
