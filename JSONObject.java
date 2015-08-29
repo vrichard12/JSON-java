@@ -1806,15 +1806,7 @@ public class JSONObject {
             Iterator<String> keys = this.keys();
             writer.write('{');
 
-            if (length == 1) {
-                Object key = keys.next();
-                writer.write(quote(key.toString()));
-                writer.write(':');
-                if (indentFactor > 0) {
-                    writer.write(' ');
-                }
-                writeValue(writer, this.map.get(key), indentFactor, indent);
-            } else if (length != 0) {
+            if (length != 0) {
                 final int newindent = indent + indentFactor;
                 while (keys.hasNext()) {
                     Object key = keys.next();
